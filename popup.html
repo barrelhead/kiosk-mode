@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medical Kiosk Mode</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#5E6AD2" />
+          <path d="M20 11C15.05 11 11 15.05 11 20C11 24.95 15.05 29 20 29C24.95 29 29 24.95 29 20C29 15.05 24.95 11 20 11ZM14.5 19.5C14.5 17.01 16.51 15 19 15C21.49 15 23.5 17.01 23.5 19.5C23.5 21.99 21.49 24 19 24C16.51 24 14.5 21.99 14.5 19.5ZM26.9 25.32C25.54 27.32 23.22 28.63 20.56 28.92C23.1 27.73 24.93 25.8 25.92 23.23C26.38 23.82 26.71 24.53 26.9 25.32ZM21.75 19.5C21.75 17.97 20.53 16.75 19 16.75C17.47 16.75 16.25 17.97 16.25 19.5C16.25 21.03 17.47 22.25 19 22.25C20.53 22.25 21.75 21.03 21.75 19.5Z" fill="white" />
+        </svg>
+      </div>
+      <h1>Medical Kiosk Mode</h1>
+    </div>
+    
+    <div id="main-view">
+      <p>Secure the current tab for patient use. Only those with the passcode will be able to navigate away.</p>
+      
+      <div class="form-group">
+        <label for="passcode">Set unlock passcode:</label>
+        <input type="password" id="passcode" placeholder="Enter a passcode">
+      </div>
+      
+      <div class="form-group">
+        <label for="confirm-passcode">Confirm passcode:</label>
+        <input type="password" id="confirm-passcode" placeholder="Confirm passcode">
+      </div>
+      
+      <div class="button-container">
+        <button id="activate-kiosk" class="button primary">Activate Kiosk Mode</button>
+      </div>
+      
+      <div class="info-section">
+        <p>For IT administrators:</p>
+        <button id="show-admin" class="button secondary">Admin Settings</button>
+      </div>
+    </div>
+    
+    <div id="admin-view" class="hidden">
+      <p>Admin settings for IT staff only:</p>
+      
+      <div id="admin-login" class="admin-section">
+        <div class="form-group">
+          <label for="admin-password">Enter Master Password:</label>
+          <input type="password" id="admin-password" placeholder="Master password">
+        </div>
+        
+        <div class="button-container">
+          <button id="verify-admin" class="button primary">Verify Access</button>
+          <button id="back-to-main-from-login" class="button secondary">Back</button>
+        </div>
+      </div>
+      
+      <div id="admin-panel" class="admin-section hidden">
+        <div class="info-section">
+          <p class="admin-note">Advanced settings for IT administrators.</p>
+          <div class="admin-controls">
+            <h4>Active Kiosk Session</h4>
+            <p id="kiosk-status">Status: Checking...</p>
+            <button id="disable-kiosk-mode" class="button primary">Disable Active Kiosk Mode</button>
+          </div>
+          
+          <div class="admin-info">
+            <h4>Security Information</h4>
+            <p>Master password is set and active.</p>
+            <p>To change the master password, contact your system administrator.</p>
+          </div>
+        </div>
+        
+        <div class="button-container">
+          <button id="back-to-main" class="button secondary">Back to Main</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="notification" class="hidden"></div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
